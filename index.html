@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171512">
+  <meta name="description" content="Akitha Anuradha — HICT undergraduate, software development, healthcare technology, IoT, data analytics and photography.">
+  <title>Akitha Anuradha | Developer · HealthTech · Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --ink: #171512;
+      --ink-soft: #24201c;
+      --cream: #fff5e9;
+      --paper: #fffaf4;
+      --orange: #ff6b35;
+      --orange-light: #ff9a62;
+      --muted: #a9a098;
+      --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ink); color: var(--cream); font-family: "DM Sans", sans-serif; }
+    h1,h2,h3,h4,.display { font-family: "Space Grotesk", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--orange); color: var(--ink); }
+    .container-wide { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { color: var(--orange-light); text-transform: uppercase; letter-spacing: .22em; font-size: .68rem; font-weight: 700; }
+    .section-title { font-size: clamp(2.5rem, 6vw, 5rem); line-height: .98; letter-spacing: -.065em; }
+    .gradient-text { background: linear-gradient(100deg, #fff5e9 5%, #ff9a62 65%, #ff6b35); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .nav-glass { background: rgba(23,21,18,.78); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; background:var(--orange); color:#171512; border-radius:999px; font-weight:700; transition:.25s ease; }
+    .btn-primary:hover { transform:translateY(-3px); background:#ff895b; box-shadow:0 12px 35px rgba(255,107,53,.22); }
+    .btn-outline { display:inline-flex; align-items:center; gap:10px; padding:13px 20px; border:1px solid rgba(255,255,255,.24); border-radius:999px; transition:.25s ease; }
+    .btn-outline:hover { border-color:var(--orange); color:var(--orange-light); transform:translateY(-3px); }
+    .hero { min-height: 760px; position:relative; overflow:hidden; padding:150px 0 95px; background: radial-gradient(ellipse at 78% 38%, rgba(255,107,53,.22), transparent 34%), radial-gradient(ellipse at 8% 90%, rgba(255,154,98,.09), transparent 34%), var(--ink); }
+    .hero:before { content:""; position:absolute; width:600px; height:600px; border:1px solid rgba(255,255,255,.07); border-radius:50%; right:-160px; top:80px; box-shadow:0 0 0 70px rgba(255,255,255,.018),0 0 0 140px rgba(255,255,255,.014); }
+    .hero-copy { position:relative; z-index:2; max-width:760px; }
+    .hero-name { font-size:clamp(4.4rem, 12vw, 9.6rem); line-height:.82; letter-spacing:-.09em; font-weight:700; }
+    .hero-photo { position:absolute; z-index:1; right:7%; bottom:0; width:min(37vw,440px); height:min(73vh,620px); display:flex; align-items:flex-end; justify-content:center; pointer-events:none; }
+    .hero-photo:before { content:""; position:absolute; inset:15% 2% 0; background:linear-gradient(145deg,rgba(255,107,53,.5),rgba(255,107,53,.02)); filter:blur(55px); border-radius:50%; }
+    .hero-photo img { position:relative; width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:48% 48% 0 0; mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%); -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%); }
+    .hero-tag { display:inline-flex; gap:9px; align-items:center; padding:9px 13px; border:1px solid rgba(255,255,255,.16); border-radius:999px; color:#e8ddd1; font-size:.75rem; }
+    .pulse { width:7px; height:7px; border-radius:50%; background:#8fe0a4; box-shadow:0 0 0 5px rgba(143,224,164,.12); }
+    .section { padding:110px 0; }
+    .section-paper { background:var(--paper); color:var(--ink); }
+    .section-muted { background:#201c18; }
+    .lead { color:#b9afa5; font-size:clamp(1rem,1.5vw,1.2rem); line-height:1.85; }
+    .section-paper .lead { color:#655e56; }
+    .card { background:#211d19; border:1px solid var(--line); border-radius:22px; overflow:hidden; transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease; }
+    .card:hover { transform:translateY(-7px); border-color:rgba(255,107,53,.55); box-shadow:0 22px 55px rgba(0,0,0,.2); }
+    .project-image { height:220px; overflow:hidden; background:#302820; }
+    .project-image img { width:100%; height:100%; object-fit:cover; transition:transform .65s ease; }
+    .card:hover .project-image img { transform:scale(1.06); }
+    .tag { display:inline-flex; padding:6px 10px; border-radius:999px; background:rgba(255,107,53,.12); color:#ff9a62; font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .skill-box { padding:25px; border:1px solid rgba(255,255,255,.12); border-radius:18px; background:rgba(255,255,255,.025); }
+    .skill-chip { display:inline-block; margin:6px 5px 0 0; padding:9px 12px; border:1px solid rgba(255,255,255,.13); border-radius:999px; color:#e6dcd1; font-size:.82rem; }
+    .timeline { border-left:1px solid rgba(255,107,53,.55); padding-left:25px; position:relative; }
+    .timeline:before { content:""; position:absolute; width:9px;height:9px;border-radius:50%;background:var(--orange);left:-5px;top:7px; }
+    .photo-card { position:relative; overflow:hidden; border-radius:18px; background:#302820; cursor:zoom-in; }
+    .photo-card img { width:100%; height:100%; min-height:260px; object-fit:cover; transition:transform .7s ease; display:block; }
+    .photo-card:hover img { transform:scale(1.07); }
+    .photo-card:after { content:""; position:absolute; inset:45% 0 0; background:linear-gradient(transparent,rgba(0,0,0,.7)); pointer-events:none; }
+    .photo-label { position:absolute; z-index:1; left:18px; bottom:17px; font-size:.75rem; letter-spacing:.15em; text-transform:uppercase; font-weight:700; }
+    .filter-btn { padding:9px 15px; border:1px solid rgba(255,255,255,.18); border-radius:999px; color:#cfc4b9; font-size:.78rem; transition:.2s; }
+    .filter-btn.active,.filter-btn:hover { background:var(--orange); border-color:var(--orange); color:var(--ink); }
+    .social-link { display:inline-flex; align-items:center; justify-content:center; width:46px;height:46px;border:1px solid rgba(255,255,255,.2);border-radius:50%;transition:.2s; }
+    .social-link:hover { background:var(--orange); color:var(--ink); border-color:var(--orange); transform:translateY(-3px); }
+    .reveal { opacity:0; transform:translateY(25px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .delay-1 { transition-delay:.1s; } .delay-2 { transition-delay:.2s; } .delay-3 { transition-delay:.3s; }
+    #lightbox { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,.92); }
+    #lightbox.open { display:flex; }
+    #lightbox img { max-width:min(100%,1100px); max-height:85vh; object-fit:contain; border-radius:12px; }
+    #lightbox button { position:absolute; top:22px; right:28px; font-size:2rem; color:white; }
+    @media(max-width:900px) { .hero { min-height:700px; padding-top:130px; } .hero-photo { right:-2%; width:43vw; opacity:.72; } .hero-copy { max-width:680px; } }
+    @media(max-width:640px) { .container-wide { width:calc(100% - 36px); } .section { padding:78px 0; } .hero { min-height:720px; padding:125px 0 65px; } .hero-photo { width:72vw; height:390px; right:-13%; opacity:.35; } .hero-name { font-size:clamp(4.1rem,18vw,7rem); } .project-image { height:190px; } .photo-card img { min-height:220px; } }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+    <nav class="container-wide h-[76px] flex items-center justify-between">
+      <a href="#home" class="display text-xl font-bold tracking-tight">AA<span class="text-orange-400">.</span></a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-stone-300">
+        <a class="hover:text-orange-400" href="#about">About</a>
+        <a class="hover:text-orange-400" href="#projects">Projects</a>
+        <a class="hover:text-orange-400" href="#skills">Skills</a>
+        <a class="hover:text-orange-400" href="#photography">Photography</a>
+        <a class="hover:text-orange-400" href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn-primary !py-2.5 !px-4 text-xs">Let's Talk <span>↗</span></a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero">
+      <div class="container-wide">
+        <div class="hero-copy">
+          <div class="hero-tag mb-8"><span class="pulse"></span> HICT UNDERGRADUATE · SRI LANKA</div>
+          <p class="eyebrow mb-5">Developer · HealthTech · Research</p>
+          <h1 class="hero-name display">AKITHA<br><span class="gradient-text">ANURADHA.</span></h1>
+          <p class="mt-8 max-w-[590px] text-lg md:text-xl leading-relaxed text-stone-300">
+            Building thoughtful digital experiences at the intersection of
+            <span class="text-orange-300">software, healthcare technology, data and IoT.</span>
+          </p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a class="btn-primary" href="#projects">Explore my work <span>↘</span></a>
+            <a class="btn-outline" href="#contact">Get in touch <span>↗</span></a>
+          </div>
+          <div class="mt-12 flex flex-wrap gap-3">
+            <span class="tag">Creative</span><span class="tag">Innovative</span><span class="tag">Research-oriented</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo" aria-hidden="true">
+        <img src="images/profile.jpg" alt="">
+      </div>
+      <div class="absolute bottom-7 left-1/2 -translate-x-1/2 text-[10px] tracking-[.3em] text-stone-500 hidden md:block">SCROLL TO EXPLORE ↓</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section-paper">
+      <div class="container-wide grid lg:grid-cols-[.85fr_1.15fr] gap-14 items-start">
+        <div class="reveal">
+          <p class="eyebrow !text-orange-600 mb-5">01 / ABOUT ME</p>
+          <h2 class="section-title">Curiosity<br>into <span class="text-orange-600">creation.</span></h2>
+        </div>
+        <div class="reveal delay-1">
+          <p class="lead">
+            I am an enthusiastic Health Information and Communication Technology undergraduate with a strong interest in software development, healthcare technology, health data analytics and the Internet of Things (IoT). I enjoy exploring new ideas, developing technology-driven solutions and researching ways to address real-world challenges.
+          </p>
+          <p class="mt-5 leading-8 text-stone-600">
+            My goal is to combine creativity, technology and research to build meaningful digital solutions that can make a positive impact on people's lives. Alongside technology, I enjoy photography — especially wildlife and portrait photography.
+          </p>
+          <div class="mt-9 grid sm:grid-cols-2 gap-5">
+            <div class="border-t border-stone-300 pt-4"><p class="text-xs uppercase tracking-widest text-stone-500">Based in</p><p class="display text-xl font-semibold mt-1">Sri Lanka</p></div>
+            <div class="border-t border-stone-300 pt-4"><p class="text-xs uppercase tracking-widest text-stone-500">Academic field</p><p class="display text-xl font-semibold mt-1">Health Information & ICT</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container-wide">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 reveal">
+          <div><p class="eyebrow mb-5">02 / SELECTED WORK</p><h2 class="section-title">Projects & <span class="gradient-text">experiments.</span></h2></div>
+          <p class="lead max-w-sm">A selection of academic, development and technology projects. Explore the repositories to see the work.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <a class="card reveal" href="https://github.com/Anuradhamga/Student-Sleep-Analytics" target="_blank" rel="noopener noreferrer">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&h=650&fit=crop" alt="Analytics dashboard"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-center gap-3"><span class="tag">Data & Analytics</span><span class="text-orange-300">↗</span></div>
+              <h3 class="display text-2xl font-bold mt-4">Student Sleep Analytics</h3>
+              <p class="mt-2 text-sm leading-7 text-stone-400">A data-focused project exploring student sleep patterns and smartphone usage to identify meaningful insights.</p>
+              <p class="mt-5 text-xs font-semibold tracking-widest text-orange-300">VIEW GITHUB REPOSITORY →</p>
+            </div>
+          </a>
+
+          <a class="card reveal delay-1" href="https://github.com/Anuradhamga/hict22013-FuturePath" target="_blank" rel="noopener noreferrer">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000&h=650&fit=crop" alt="Career technology workspace"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-center gap-3"><span class="tag">Web Development</span><span class="text-orange-300">↗</span></div>
+              <h3 class="display text-2xl font-bold mt-4">FuturePath</h3>
+              <p class="mt-2 text-sm leading-7 text-stone-400">A student-focused career discovery project designed to help users explore future learning and career directions.</p>
+              <p class="mt-5 text-xs font-semibold tracking-widest text-orange-300">VIEW GITHUB REPOSITORY →</p>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://github.com/Anuradhamga/UIDesignLab" target="_blank" rel="noopener noreferrer">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=1000&h=650&fit=crop" alt="Mobile app user interface design"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-center gap-3"><span class="tag">Android Development</span><span class="text-orange-300">↗</span></div>
+              <h3 class="display text-2xl font-bold mt-4">UI Design Lab</h3>
+              <p class="mt-2 text-sm leading-7 text-stone-400">An Android development learning project exploring app interfaces and practical mobile development features.</p>
+              <p class="mt-5 text-xs font-semibold tracking-widest text-orange-300">VIEW GITHUB REPOSITORY →</p>
+            </div>
+          </a>
+
+          <a class="card reveal delay-1" href="https://github.com/Anuradhamga/book-library" target="_blank" rel="noopener noreferrer">
+            <div class="project-image"><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1000&h=650&fit=crop" alt="Books in a library"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-center gap-3"><span class="tag">Web Development</span><span class="text-orange-300">↗</span></div>
+              <h3 class="display text-2xl font-bold mt-4">Book Library</h3>
+              <p class="mt-2 text-sm leading-7 text-stone-400">A web-based book library project built with HTML and CSS.</p>
+              <p class="mt-5 text-xs font-semibold tracking-widest text-orange-300">VIEW GITHUB REPOSITORY →</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-7 rounded-2xl border border-dashed border-stone-700 p-6 reveal">
+          <p class="eyebrow mb-2">IN DEVELOPMENT / CONCEPTS</p>
+          <p class="text-stone-300 text-sm leading-7">Other concepts include My Doc (digital healthcare), Fit Apex (job discovery platform), Smart Pet Monitoring Band (IoT) and NeuroCare (health technology concept). These can be linked to their repositories or demos when they are ready to share.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section-muted">
+      <div class="container-wide">
+        <div class="mb-12 reveal"><p class="eyebrow mb-5">03 / TOOLKIT</p><h2 class="section-title">Tools I use to<br><span class="gradient-text">make things happen.</span></h2></div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="skill-box reveal"><p class="eyebrow mb-3">01 — PROGRAMMING</p><h3 class="display text-2xl font-semibold mb-4">Development</h3><span class="skill-chip">Java</span><span class="skill-chip">Python</span><span class="skill-chip">JavaScript</span><span class="skill-chip">HTML</span><span class="skill-chip">CSS</span></div>
+          <div class="skill-box reveal delay-1"><p class="eyebrow mb-3">02 — DATA</p><h3 class="display text-2xl font-semibold mb-4">Databases</h3><span class="skill-chip">Firebase</span><span class="skill-chip">MySQL</span></div>
+          <div class="skill-box reveal"><p class="eyebrow mb-3">03 — WORKFLOW</p><h3 class="display text-2xl font-semibold mb-4">Tools & Platforms</h3><span class="skill-chip">Android Studio</span><span class="skill-chip">VS Code</span><span class="skill-chip">Git</span><span class="skill-chip">GitHub</span><span class="skill-chip">Figma</span></div>
+          <div class="skill-box reveal delay-1"><p class="eyebrow mb-3">04 — HARDWARE</p><h3 class="display text-2xl font-semibold mb-4">IoT & Electronics</h3><span class="skill-chip">ESP32</span><span class="skill-chip">Arduino</span><span class="skill-chip">Electronic Sensors</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="section section-paper">
+      <div class="container-wide grid lg:grid-cols-2 gap-14">
+        <div class="reveal"><p class="eyebrow !text-orange-600 mb-5">04 / WHAT DRIVES ME</p><h2 class="section-title">Where technology<br>meets <span class="text-orange-600">purpose.</span></h2><p class="lead mt-7">I am interested in using technology and research to create useful, human-centred solutions.</p></div>
+        <div class="grid sm:grid-cols-2 gap-4 reveal delay-1">
+          <div class="p-5 rounded-2xl bg-white border border-stone-200"><span class="text-2xl">⌘</span><h3 class="display text-lg font-bold mt-4">Software Development</h3><p class="text-sm text-stone-500 mt-2 leading-6">Building practical digital applications and solutions.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-stone-200"><span class="text-2xl">✳</span><h3 class="display text-lg font-bold mt-4">Healthcare Technology</h3><p class="text-sm text-stone-500 mt-2 leading-6">Exploring technology that supports healthcare services.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-stone-200"><span class="text-2xl">▥</span><h3 class="display text-lg font-bold mt-4">Health Data Analytics</h3><p class="text-sm text-stone-500 mt-2 leading-6">Finding useful patterns and insights in health-related data.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-stone-200"><span class="text-2xl">⌁</span><h3 class="display text-lg font-bold mt-4">IoT & Innovation</h3><p class="text-sm text-stone-500 mt-2 leading-6">Connecting devices, sensors and intelligent systems.</p></div>
+          <div class="p-5 rounded-2xl bg-white border border-stone-200 sm:col-span-2"><span class="text-2xl">◎</span><h3 class="display text-lg font-bold mt-4">Artificial Intelligence & Research</h3><p class="text-sm text-stone-500 mt-2 leading-6">Learning how AI, machine learning and research can help solve real-world problems.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & EXPERIENCE -->
+    <section class="section">
+      <div class="container-wide grid lg:grid-cols-2 gap-16">
+        <div class="reveal">
+          <p class="eyebrow mb-5">05 / EDUCATION</p><h2 class="section-title mb-10">Learning<br><span class="gradient-text">by doing.</span></h2>
+          <div class="timeline mb-9">
+            <p class="text-xs uppercase tracking-widest text-orange-300">Undergraduate</p>
+            <h3 class="display text-xl font-bold mt-2">Health Information and Communication Technology (HICT)</h3>
+            <p class="text-stone-400 mt-2">Gampaha Wickramarachchi University of Indigenous Medicine</p>
+          </div>
+          <div class="timeline mb-9">
+            <p class="text-xs uppercase tracking-widest text-orange-300">G.C.E. Advanced Level</p>
+            <h3 class="display text-xl font-bold mt-2">Technology Stream</h3>
+            <p class="text-stone-400 mt-2">Results: B, C, C</p>
+          </div>
+          <div class="timeline">
+            <p class="text-xs uppercase tracking-widest text-orange-300">Vocational Qualification</p>
+            <h3 class="display text-xl font-bold mt-2">NVQ Level 3 — Automobile Technician</h3>
+          </div>
+        </div>
+        <div class="reveal delay-1">
+          <p class="eyebrow mb-5">06 / EXPERIENCE</p><h2 class="section-title mb-10">Practical<br><span class="gradient-text">experience.</span></h2>
+          <div class="card p-7">
+            <span class="tag">6 MONTHS</span>
+            <h3 class="display text-2xl font-bold mt-5">Automobile Technician</h3>
+            <p class="text-orange-300 mt-2 font-semibold">Sri Lanka Transport Board (SLTB)</p>
+            <p class="text-stone-500 text-sm mt-1">Ambalantota, Sri Lanka</p>
+            <p class="text-stone-300 leading-7 mt-5">Gained practical experience in automobile maintenance, vehicle inspection, troubleshooting and mechanical repair in a professional working environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+<section id="certifications" class="section section-muted">
+  <div class="container-wide">
+
+    <div class="mb-10 reveal">
+      <p class="eyebrow">06 / CERTIFICATIONS</p>
+      <h2 class="section-title">
+        Learning never <span class="text-orange-600">stops.</span>
+      </h2>
+      <p class="text-stone-500 mt-4 max-w-xl">
+        Professional certifications and continuous learning in emerging technologies.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 items-stretch">
+
+      <!-- CARD 01: GOOGLE AI ESSENTIALS -->
+      <div class="project-card reveal p-7 bg-white rounded-2xl flex flex-col">
+
+        <div class="flex justify-between items-start mb-6">
+          <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-2xl">
+            🤖
+          </div>
+          <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-2 rounded-full">
+            COMPLETED
+          </span>
+        </div>
+
+        <p class="text-xs font-bold tracking-widest text-stone-400 mb-2">
+          GOOGLE · COURSERA
+        </p>
+
+        <h3 class="text-2xl font-extrabold mb-3 text-orange-600">
+          Google AI Essentials
+        </h3>
+
+        <p class="text-stone-500 leading-7 mb-5">
+          Successfully completed the Google AI Essentials Specialization,
+          gaining practical knowledge of artificial intelligence,
+          productivity tools, prompt engineering and responsible AI usage.
+        </p>
+
+        <div class="space-y-2 text-sm text-stone-600 mb-6">
+          <p>📅 Completed: October 2, 2025</p>
+          <p>🏆 Certificate ID: 3ZSZY5BDYJPD</p>
+        </div>
+
+        <div class="border-t border-stone-200 pt-5">
+          <p class="font-extrabold text-base mb-3 text-orange-600">
+            Courses Completed
+          </p>
+
+          <ul class="text-sm text-stone-500 space-y-2">
+            <li>✓ Introduction to AI</li>
+            <li>✓ Maximize Productivity With AI Tools</li>
+            <li>✓ Discover the Art of Prompting</li>
+            <li>✓ Use AI Responsibly</li>
+            <li>✓ Stay Ahead of the AI Curve</li>
+          </ul>
+        </div>
+
+       <div class="mt-6">
+  <p class="font-extrabold text-base mb-3 text-orange-600">
+    Certificate Preview
+  </p>
+
+  <img
+    src="certificates/Google-AI-Essentials.jpeg"
+    alt="Google AI Essentials Certificate"
+    onclick="openCertificate(this.src)"
+    class="w-full h-64 object-contain bg-stone-100 rounded-xl border border-stone-200 p-3 cursor-pointer hover:opacity-90 transition"
+  >
+
+  <p class="text-xs text-stone-400 mt-2 text-center">
+    Click to view full certificate ↗
+  </p>
+</div>
+      </div>
+
+
+      <!-- CARD 02: USE AI RESPONSIBLY -->
+      <div class="project-card reveal p-7 bg-white rounded-2xl flex flex-col">
+
+        <div class="flex justify-between items-start mb-6">
+          <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-2xl">
+            🛡️
+          </div>
+          <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-2 rounded-full">
+            COMPLETED
+          </span>
+        </div>
+
+        <p class="text-xs font-bold tracking-widest text-stone-400 mb-2">
+          GOOGLE · COURSERA
+        </p>
+
+        <h3 class="text-2xl font-extrabold mb-3 text-orange-600">
+          Use AI Responsibly
+        </h3>
+
+        <p class="text-stone-500 leading-7 mb-5">
+          Successfully completed the Use AI Responsibly course,
+          gaining knowledge of responsible, ethical and effective
+          artificial intelligence usage.
+        </p>
+
+        <div class="space-y-2 text-sm text-stone-600 mb-6">
+          <p>📅 Completed: October 2, 2025</p>
+          <p>🏆 Issued by: Coursera</p>
+        </div>
+
+        <div class="border-t border-stone-200 pt-5">
+          <p class="font-extrabold text-base mb-3 text-orange-600">
+            Course Details
+          </p>
+
+          <ul class="text-sm text-stone-500 space-y-2">
+            <li>✓ Responsible AI Usage</li>
+            <li>✓ Ethical AI Practices</li>
+            <li>✓ Safe and Effective AI Usage</li>
+          </ul>
+        </div>
+<div class="mt-6">
+  <p class="font-extrabold text-base mb-3 text-orange-600">
+    Certificate Preview
+  </p>
+
+  <img
+    src="certificates/Use-AI-Responsibly.jpeg"
+    alt="Use AI Responsibly Certificate"
+    onclick="openCertificate(this.src)"
+    class="w-full h-64 object-contain bg-stone-100 rounded-xl border border-stone-200 p-3 cursor-pointer hover:opacity-90 transition"
+  >
+
+  <p class="text-xs text-stone-400 mt-2 text-center">
+    Click to view full certificate ↗
+  </p>
+</div>
+        <a
+          href="https://www.coursera.org/learn/google-use-ai-responsibly"
+          target="_blank"
+          class="text-orange-600 font-semibold text-sm mt-5 hover:underline"
+        >
+         
+        </a>
+
+      </div>
+
+    </div>
+    <!-- SLIoT Challenge Certificate -->
+<div class="bg-white rounded-2xl p-6 flex flex-col h-full mt-6">
+
+  <div class="flex items-center justify-between mb-5">
+    <span class="text-[#FF6B35] text-xs font-bold tracking-widest">
+      🏆
+    </span>
+
+    <span class="bg-orange-50 text-[#FF6B35] text-xs font-bold px-3 py-1 rounded-full">
+      PARTICIPANT
+    </span>
+  </div>
+
+  <p class="text-gray-400 text-xs tracking-widest mb-3">
+    SLIoT CHALLENGE 2026
+  </p>
+
+  <h3 class="text-xl font-bold text-[#FF6B35] mb-3">
+    SLIoT Challenge 2026
+  </h3>
+
+  <p class="text-gray-600 text-sm leading-relaxed mb-4">
+    Successfully participated in the SLIoT Challenge 2026
+    under the University Category.
+  </p>
+
+  <div class="text-gray-600 text-xs space-y-2 mb-5">
+    <p>📅 Completed: August 2, 2026</p>
+    <p>🏆 Category: University</p>
+    <p>🎓 Issued by: SLIoT Challenge 2026 Team</p>
+  </div>
+
+  <div class="border-t border-gray-200 pt-4 mt-auto">
+
+    <h4 class="text-[#FF6B35] text-sm font-bold mb-3">
+      Certificate Preview
+    </h4>
+
+    <div class="h-40 bg-gray-50 border border-gray-200 rounded-xl flex flex-col items-center justify-center">
+      <span class="text-5xl mb-3">📄</span>
+
+      <p class="text-gray-700 text-sm font-semibold">
+        PDF Certificate
+      </p>
+
+      <p class="text-gray-400 text-xs mt-1">
+        SLIoT Challenge 2026
+      </p>
+    </div>
+
+    <a href="certificates/SLIoT-Challenge-2026.pdf"
+       target="_blank"
+       class="block text-center text-gray-500 text-xs mt-3 hover:text-[#FF6B35] transition">
+      Click to view full certificate ↗
+    </a>
+
+  </div>
+
+</div>
+
+  </div>
+</section>
+  <!-- PHOTOGRAPHY -->
+<section id="photography" class="section section-muted">
+  <div class="container-wide">
+
+    <!-- Heading -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-7 mb-10 reveal">
+      <div>
+        <p class="eyebrow mb-5">07 / BEHIND THE LENS</p>
+        <h2 class="section-title">
+          A different way<br>
+          to <span class="gradient-text">see the world.</span>
+        </h2>
+      </div>
+
+      <p class="lead max-w-sm">
+        Photography is my creative space — capturing wildlife,
+        architecture and moments that tell a story.
+      </p>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="flex flex-wrap gap-2 mb-9 reveal">
+      <button class="filter-btn active"
+        onclick="showPhotoCategory('all', this)">All</button>
+
+      <button class="filter-btn"
+        onclick="showPhotoCategory('wildlife', this)">Wildlife</button>
+
+      <button class="filter-btn"
+        onclick="showPhotoCategory('architecture', this)">Architecture</button>
+
+      <button class="filter-btn"
+        onclick="showPhotoCategory('nature', this)">Nature</button>
+    </div>
+
+    <!-- MAIN GALLERY -->
+    <div id="photoMainGallery">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <!-- WILDLIFE PREVIEW -->
+        <div class="photo-category-preview" data-preview="wildlife">
+
+          <div class="photo-card">
+            <img src="images/photography/wildlife3.jpg"
+                 alt="Wildlife Photography">
+            <span class="photo-label">Wildlife</span>
+          </div>
+
+          <button onclick="openPhotoCategory('wildlife')"
+            class="mt-4 text-white font-semibold text-sm hover:text-[#FF6B35] transition group">
+            More <span class="inline-block group-hover:translate-x-2 transition-transform">→</span>
+          </button>
+
+        </div>
+
+        <!-- ARCHITECTURE PREVIEW -->
+        <div class="photo-category-preview" data-preview="architecture">
+
+          <div class="photo-card">
+            <img src="images/photography/architecture3.jpg"
+                 alt="Architecture Photography">
+            <span class="photo-label">Architecture</span>
+          </div>
+
+          <button onclick="openPhotoCategory('architecture')"
+            class="mt-4 text-white font-semibold text-sm hover:text-[#FF6B35] transition group">
+            More <span class="inline-block group-hover:translate-x-2 transition-transform">→</span>
+          </button>
+
+        </div>
+
+        <!-- NATURE PREVIEW -->
+        <div class="photo-category-preview" data-preview="nature">
+
+          <div class="photo-card">
+            <img src="images/photography/nature1.jpg"
+                 alt="Nature Photography">
+            <span class="photo-label">Nature</span>
+          </div>
+
+          <button onclick="openPhotoCategory('nature')"
+            class="mt-4 text-white font-semibold text-sm hover:text-[#FF6B35] transition group">
+            More <span class="inline-block group-hover:translate-x-2 transition-transform">→</span>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WILDLIFE FULL GALLERY -->
+    <div id="wildlifeGallery" class="hidden">
+
+      <button onclick="backToPhotoGallery()"
+        class="text-white text-sm font-semibold mb-7 hover:text-[#FF6B35] transition">
+        ← Back to Gallery
+      </button>
+
+      <h3 class="text-2xl font-bold mb-6">Wildlife Photography</h3>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+
+        <div class="photo-card">
+          <img src="images/photography/wildlife2.jpg"
+               alt="Wildlife Photography">
+          <span class="photo-label">Wildlife</span>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photography/wildlife3.jpg"
+               alt="Wildlife Photography">
+          <span class="photo-label">Wildlife</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE FULL GALLERY -->
+    <div id="architectureGallery" class="hidden">
+
+      <button onclick="backToPhotoGallery()"
+        class="text-white text-sm font-semibold mb-7 hover:text-[#FF6B35] transition">
+        ← Back to Gallery
+      </button>
+
+      <h3 class="text-2xl font-bold mb-6">Architecture Photography</h3>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+
+        <div class="photo-card">
+          <img src="images/photography/architecture1.jpg"
+               alt="Architecture Photography">
+          <span class="photo-label">Architecture</span>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photography/architecture2.jpg"
+               alt="Architecture Photography">
+          <span class="photo-label">Architecture</span>
+        </div>
+        <div class="photo-card">
+          <img src="images/photography/architecture3.jpg"
+               alt="Architecture Photography">
+          <span class="photo-label">Architecture</span>
+        </div>
+        <div class="photo-card">
+          <img src="images/photography/architecture4.jpg"
+               alt="Architecture Photography">
+          <span class="photo-label">Architecture</span>
+        </div>
+        <div class="photo-card">
+          <img src="images/photography/architecture5.jpg"
+               alt="Architecture Photography">
+          <span class="photo-label">Architecture</span>
+        </div>
+        <div class="photo-card">
+          <img src="images/photography/architecture6.jpg"
+               alt="Architecture Photography">
+          <span class="photo-label">Architecture</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NATURE FULL GALLERY -->
+    <div id="natureGallery" class="hidden">
+
+      <button onclick="backToPhotoGallery()"
+        class="text-white text-sm font-semibold mb-7 hover:text-[#FF6B35] transition">
+        ← Back to Gallery
+      </button>
+
+      <h3 class="text-2xl font-bold mb-6">Nature Photography</h3>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+
+        <div class="photo-card">
+          <img src="images/photography/nature1.jpg"
+               alt="Nature Photography">
+          <span class="photo-label">Nature</span>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photography/nature2.jpg"
+               alt="Nature Photography">
+          <span class="photo-label">Nature</span>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photography/nature3.jpg"
+               alt="Nature Photography">
+          <span class="photo-label">Nature</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- CONTACT -->
+   <section id="contact" class="section">
+  <div class="container-wide">
+    <div class="rounded-[28px] p-8 md:p-14 relative overflow-hidden bg-[#fff5e9] text-[#171512] reveal">
+      <div class="absolute -right-20 -top-28 w-96 h-96 rounded-full border-[55px] border-orange-200/50"></div>
+
+      <div class="relative z-10 max-w-3xl">
+        <p class="eyebrow !text-orange-700 mb-5">08 / LET'S CONNECT</p>
+
+        <h2 class="section-title">Have an idea?<br><span class="text-orange-600">Let's build it.</span></h2>
+
+        <p class="text-stone-600 mt-7 text-lg leading-8 max-w-xl">
+          I'm open to connecting with developers, researchers, creative people and opportunities to learn, collaborate and build meaningful projects.
+        </p>
+
+        <a class="btn-primary mt-8" href="mailto:akithaanurada@gmail.com">
+          Email me <span>↗</span>
+        </a>
+
+        <div class="flex flex-wrap gap-3 mt-9">
+          <a
+  href="https://wa.me/94773846408"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="px-5 py-3 rounded-full bg-green-600 text-white text-sm font-bold hover:bg-green-700 transition flex items-center gap-2"
+>
+  <span>☘</span> WhatsApp
+</a>
+
+          <!-- GitHub -->
+          <a class="social-link !border-stone-400"
+             href="https://github.com/Anuradhamga"
+             target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.76 2.17 3.42 1.55.1-.72.39-1.21.7-1.49-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.13-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.64 5.27-5.15 5.55.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/>
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a class="social-link !border-stone-400"
+             href="https://www.linkedin.com/in/akitha-anuradha-675149338/"
+             target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.45v6.3ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V8.98h3.56v11.47ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a class="social-link !border-stone-400"
+             href="https://www.facebook.com/share/1FVj9KkMpk/?mibextid=wwXIfr"
+             target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.003 10.125 11.927v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.98h-1.513c-1.49 0-1.956.93-1.956 1.884v2.26h3.328l-.532 3.49h-2.796V24C19.612 23.076 24 18.092 24 12.073Z"/>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a class="social-link !border-stone-400 text-sm font-bold"
+             href="mailto:akithaanurada@gmail.com" aria-label="Email">✉</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="border-t border-white/10 py-8">
+    <div class="container-wide flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-stone-500">
+      <p>© <span id="year"></span> Akitha Anuradha. All rights reserved.</p>
+      <p>Designed with curiosity, creativity & code.</p>
+      <a href="#home" class="text-orange-300 hover:text-orange-200">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photography preview">
+    <button id="lightboxClose" aria-label="Close image preview">×</button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+<script>
+  // Reveal elements as they enter the screen
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+
+
+  // Photography category filters
+  function showPhotoCategory(category, button) {
+    const previews = document.querySelectorAll('.photo-category-preview');
+
+    previews.forEach(preview => {
+      if (category === 'all' || preview.dataset.preview === category) {
+        preview.style.display = '';
+      } else {
+        preview.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    if (button) {
+      button.classList.add('active');
+    }
+  }
+
+function openPhotoCategory(category) {
+  document.getElementById('photoMainGallery').style.display = 'none';
+
+  hideAllPhotoGalleries();
+
+  const selectedGallery = document.getElementById(category + 'Gallery');
+
+  if (selectedGallery) {
+    selectedGallery.classList.remove('hidden');
+    selectedGallery.style.display = 'block';
+  }
+}
+
+function hideAllPhotoGalleries() {
+  const galleries = [
+    'wildlifeGallery',
+    'architectureGallery',
+    'natureGallery'
+  ];
+
+  galleries.forEach(id => {
+    const gallery = document.getElementById(id);
+
+    if (gallery) {
+      gallery.classList.add('hidden');
+      gallery.style.display = 'none';
+    }
+  });
+}
+
+
+
+
+  // Back to main photography gallery
+  function backToPhotoGallery() {
+  hideAllPhotoGalleries();
+
+  const mainGallery = document.getElementById('photoMainGallery');
+  mainGallery.style.display = 'grid';
+
+  document.querySelectorAll('.photo-category-preview').forEach(preview => {
+    preview.style.display = '';
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  const allButton = document.querySelector('.filter-btn[onclick*="all"]');
+
+  if (allButton) {
+    allButton.classList.add('active');
+  }
+}
+
+  // Photography lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+
+  document.getElementById('photography').addEventListener('click', event => {
+    const img = event.target.closest('.photo-card img');
+
+    if (!img) return;
+
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImage.src = '';
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+
+  // Current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+</script>
+
+  <!-- CERTIFICATE LIGHTBOX -->
+<div id="certificateLightbox"
+     onclick="closeCertificate()"
+     class="fixed inset-0 bg-black/90 z-[9999] hidden items-center justify-center p-4 cursor-pointer">
+
+  <button
+    onclick="closeCertificate()"
+    class="absolute top-5 right-6 text-white text-4xl">
+    &times;
+  </button>
+
+  <img
+    id="certificateFullImage"
+    src=""
+    alt="Full Certificate"
+    class="max-w-full max-h-[90vh] object-contain rounded-lg"
+  >
+</div>
+
+<script>
+function openCertificate(imageSrc) {
+  const lightbox = document.getElementById('certificateLightbox');
+  document.getElementById('certificateFullImage').src = imageSrc;
+
+  lightbox.classList.remove('hidden');
+  lightbox.classList.add('flex');
+}
+
+function closeCertificate() {
+  const lightbox = document.getElementById('certificateLightbox');
+
+  lightbox.classList.add('hidden');
+  lightbox.classList.remove('flex');
+}
+</script>
+<script>
+function showPhotoCategory(category, button) {
+
+  document.getElementById('photoMainGallery').classList.remove('hidden');
+
+  document.getElementById('wildlifeGallery').classList.add('hidden');
+  document.getElementById('architectureGallery').classList.add('hidden');
+  document.getElementById('natureGallery').classList.add('hidden');
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  button.classList.add('active');
+
+  document.querySelectorAll('.photo-category-preview').forEach(item => {
+    if (category === 'all' || item.dataset.preview === category) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+
+// Open selected photography category
+function openPhotoCategory(category) {
+
+  const mainGallery = document.getElementById('photoMainGallery');
+
+  const galleries = [
+    'wildlifeGallery',
+    'architectureGallery',
+    'natureGallery'
+  ];
+
+  // Hide main gallery
+  mainGallery.classList.add('hidden');
+
+  // Hide all category galleries
+  galleries.forEach(id => {
+    document.getElementById(id).classList.add('hidden');
+  });
+
+  // Show selected gallery
+  const selectedGallery = document.getElementById(category + 'Gallery');
+
+  if (selectedGallery) {
+    selectedGallery.classList.remove('hidden');
+  }
+
+  window.scrollTo({
+    top: document.getElementById('photography').offsetTop,
+    behavior: 'smooth'
+  });
+}
+
+
+// Back to main photography gallery
+function backToPhotoGallery() {
+
+  document.getElementById('photoMainGallery').classList.remove('hidden');
+
+  const galleries = [
+    'wildlifeGallery',
+    'architectureGallery',
+    'natureGallery'
+  ];
+
+  galleries.forEach(id => {
+    document.getElementById(id).classList.add('hidden');
+  });
+
+  // Show all category previews
+  document.querySelectorAll('.photo-category-preview').forEach(item => {
+    item.classList.remove('hidden');
+    item.style.display = '';
+  });
+
+  // Reset category buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  const allButton = document.querySelector('.filter-btn[onclick*="all"]');
+
+  if (allButton) {
+    allButton.classList.add('active');
+  }
+
+  window.scrollTo({
+    top: document.getElementById('photography').offsetTop,
+    behavior: 'smooth'
+  });
+}
+</script>
+</body>
+</html>
